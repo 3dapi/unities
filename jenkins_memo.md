@@ -83,10 +83,6 @@ IF EXIST "%CLEANUP_TARGET_PATH%" (
         	<string>jenkins.build</string>
         	<key>ProgramArguments</key>
         	<array>
-        		<string>/usr/libexec/java_home</string>
-        		<string>-v</string>
-        		<string>1.17</string>
-        		<string>--exec</string>
         		<string>java</string>
         		<string>-Dmail.smtp.starttls.enable=true</string>
         		<string>-jar</string>
