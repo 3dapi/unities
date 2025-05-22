@@ -63,6 +63,40 @@ IF EXIST "%CLEANUP_TARGET_PATH%" (
    - change Xcode + version
    - Xcode ⇒ Locations Derived Data ⇒ Relative
    - create jenkins work forlder
+   - xcode 변경
+     - xcode-select --print-path
+     - xcode-select --switch
+     - xcrun --sdk iphoneos --show-sdk-path
+* install pod in system
+   - ruby -v
+   - gem -v
+   - pod –version
+   - 맥OS 15.4.1 이후 system ruby 를 사용해서 pod 설치 제한됨
+     - renv로 설치하면 jenkins 권한문제로 사용불가
+     - homebrew 를 통해서 ruby를 설치하고 시스템에 pod 설치
+   - install pod with brew
+     - brew install ruby
+     - install 과정에서 가이드 내용 그대로 실행
+	   - ruby is keg-only, which means it was not symlinked into /opt/homebrew, because macOS already provides this software and installing another version in parallel can cause all kinds of trouble.
+	   - If you need to have ruby first in your PATH, run:
+         - echo 'export PATH="/opt/homebrew/opt/ruby/bin:$PATH"' >> ~/.zshrc
+         - For compilers to find ruby you may need to set:
+           - export LDFLAGS="-L/opt/homebrew/opt/ruby/lib"
+		   - export CPPFLAGS="-I/opt/homebrew/opt/ruby/include"
+     - macos@user ~ % which ruby
+       - /usr/bin/ruby
+     - macos@user ~ % echo 'export PATH="/opt/homebrew/opt/ruby/bin:$PATH"' >> ~/.zshrc
+     - macos@user ~ % source ~/.zshrc
+     - macos ~ % which ruby
+       - /opt/homebrew/opt/ruby/bin/ruby
+     - macos@user ~ % which gem
+       - /opt/homebrew/opt/ruby/bin/gem
+     -  macos@user ~ % gem -v
+       - 3.6.9
+     - macos@user ~ % which pod <= pod 경로가 시스템 폴더인지 확인
+       - /usr/local/bin/pod
+     - macos@user ~ % pod -version
+
 * jenkins node shared folder
    - create folder to /Users/${USER_ID}/build.app.jenkins.slave
    - setup the shared folder
