@@ -1,0 +1,13 @@
+# Mark Down
+- Markdown Guide : https://www.markdownguide.org/
+- link
+  - simple link: [https://github.com/3dapi](https://github.com)
+  - only url: ([https://github.com](https://github.com))
+  - non http link
+    - use backtick (`)
+    - ``` ` ```https://github.com/3dapi`
+- file link
+    - `https://raw.githubusercontent.com/<user id>/<Repository>/main/<sub foler>/<Target file>`
+    - `https://github.com/<user id>/<Repository>/raw/main/<sub foler>/<Target file>`
+    - ex) https://raw.githubusercontent.com/3dapi/GameResource/main/2DGameTutorial/LegacyFantasyForest.zip
+    - ex) https://github.com/3dapi/GameResource/raw/main/2DGameTutorial/LegacyFantasyForest.zip
