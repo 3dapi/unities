@@ -88,4 +88,17 @@ git commit -m "Add large file using Git LFS"
 git push
 ```
 
-- Git LFS 무료 요금제 기준: 월 1GB 업로드 / 1GB 다운로드 트래픽
+# GitHub 명령어
+
+## 파일 모드 해제
+- Windows, Mac의 파일 모드가 다름. 맥에서 만든 파일을 윈도우에서 다운로드 되었을 때 권한 문제와 파일 Line Endings 문제 발생 할 수 있음.
+- Git이 파일 권한 변경을 무시하도록 설정
+``` bash
+	- git config core.filemode false
+```
+- 상태 강제 초기화
+``` bash
+ 	- git reset --hard HEAD
+```
+- 옵션
+	- git checkout -b "version"
