@@ -81,11 +81,28 @@ git push origin --delete master
 
 ```bash
 git lfs install
+git rm -r --cached .
 git lfs track "*.mp3"
+git lfs track "*.mp4"
+
 git add .gitattributes
+git lfs ls-files
 git add myfile.mp3
 git commit -m "Add large file using Git LFS"
-git push
+git push origin main --force
+```
+
+## 8. Git Squash
+- 최신부터 n개 커밋을 대상으로 함.
+```bash
+git rebase -i HEAD~n
+```
+- vi editor 화면에서 가장 오래된커밋만 **pick** 으로 유지
+- 나머지 7개 줄의 pick을 모두 s (squash)로 변경
+- 메시지 창이 열리면 대표 메시 하나만 남긴뒤 저장
+- 강제 푸시
+```bash
+git push origin main --force
 ```
 
 # GitHub 명령어
