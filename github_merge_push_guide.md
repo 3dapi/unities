@@ -104,6 +104,35 @@ git rebase -i HEAD~n
 ```bash
 git push origin main --force
 ```
+## 9. Git amend / push
+- git-fork 를 사용하면 amend를 체크해놓고 쓰다보면 종종 충돌을 발생
+- <img width="157" height="23" alt="git_amend_crash" src="https://github.com/user-attachments/assets/e2386484-c7cd-485b-b81d-19b541da3f16" />
+- 원인
+  - amend는 최신 커밋을 수정하여 새로운 커밋으로 덮어쓰는 작업.
+  - 로컬(Local): amend로 인해 기존 커밋의 해시(Hash) 값이 바뀌어 완전히 새로운 커밋이 생성 (↑1 발생)
+  - 원격에는 아직 수정 전의 기존 커밋이 그대로 남아 있음 (↓1 발생)
+  - 충돌: Git은 이 두 커밋이 서로 다른 것으로 간주, Pull 과 동시에 Push 를 표시
+  - 해결 방법 A:
+    - 강제 푸시 (Force Push) - 원격 저장소를 강제로 덮어 씀.
+    - 작업한 내용이 본인만 사용하는 브랜치, 또는 최신 수정본(amend 한 내용)이 확실한 경우.
+    - 주의: 다른 협업자가 해당 브랜치를 이미 내려받았다면 혼란을 줄 수 있으므로, 혼자 작업하는 브랜치일 때 주로 사용.
+  - 해결 방법 B
+    - 현재 폴더를 git 이 없는 폴더에 복사
+    - 현재 커밋을 해제
+    - 복사 한 것을 덮어 쓰고 커밋
+
+- git push --force
+
+```bash
+git rebase -i HEAD~n
+```
+- vi editor 화면에서 가장 오래된커밋만 **pick** 으로 유지
+- 나머지 7개 줄의 pick을 모두 s (squash)로 변경
+- 메시지 창이 열리면 대표 메시 하나만 남긴뒤 저장
+- 강제 푸시
+```bash
+git push origin main --force
+```
 
 # GitHub 명령어
 
