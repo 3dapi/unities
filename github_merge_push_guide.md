@@ -118,7 +118,7 @@ git push origin main --force
     - 주의: 다른 협업자가 해당 브랜치를 이미 내려받았다면 혼란을 줄 수 있으므로, 혼자 작업하는 브랜치일 때 주로 사용.
   - 해결 방법 B
     - 현재 폴더를 git 이 없는 폴더에 복사
-    - 현재 커밋을 해제
+    - Soft Reset: git reset --soft HEAD~1 (파일 수정 내역은 남기고 커밋만 취소)
     - 복사 한 것을 덮어 쓰고 커밋
 
 - git push --force
