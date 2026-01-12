@@ -148,3 +148,15 @@ git push origin main --force
 ```
 - 옵션
 	- git checkout -b "version"
+
+
+## Squash 자주 하면 clone 저장소 트리 이상
+- 이력 강제 복구 (가장 확실한 방법)
+```bash
+git fetch origin
+```
+- 로컬 main 브랜치를 원격 main으로 강제 리셋:
+
+```bash
+git reset --hard origin/main
+```
