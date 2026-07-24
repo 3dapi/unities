@@ -2,9 +2,24 @@
 ## rename
 ``` powershell
   dir | Rename-Item -NewName {$_.name -replace "source", "target"}
+  Get-ChildItem -File -Recurse | Rename-Item -NewName { $_.Name -replace "source", "target" }
 ```
+## rename
+``` powershell
+  # 파워셀 등록
+  HKEY_CLASSES_ROOT\Directory\Background\shell\WindowsTerminal
+  기본값: Open Windows PS
+  Icon: C:\Windows\SysWOW64\edit.exe
+  HKEY_CLASSES_ROOT\Directory\Background\shell\WindowsTerminal\command
+  
+  기본값 설정
+  powershell -Command "Start-Process wt -ArgumentList '-d \"%V\"' -Verb RunAs"
+  powershell -NoProfile -Command "Start-Process powershell.exe -Verb RunAs -WorkingDirectory '%V'"
+  powershell -NoProfile -Command "Start-Process wt.exe -Verb RunAs -ArgumentList 'new-tab -p \"Windows PowerShell\" -d \"%V\"'"
+  powershell -NoProfile -WindowStyle Hidden -Command "Start-Process wt.exe -Verb RunAs -ArgumentList 'new-tab -p \"Windows PowerShell\" -d \"%V\"'"
+```
+
 # window command
-## 일반
 ## 일반
  - control : 제어판
  - Access.cpl : 내게 필요한 옵션
